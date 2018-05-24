@@ -181,6 +181,10 @@ EFI_STATUS get_volumes(VOLUME_DESC **volumes, UINTN *count)
 		      (*volumes)[rootCount].fscustomlabel);
 
 		mfree(devpathstr);
+
+		if (IsOnBootDevice(devpath)) {
+			Print(L"(On the boot device)\n");
+		}
 		rootCount++;
 	}
 	*count = rootCount;
