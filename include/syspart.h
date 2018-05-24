@@ -32,6 +32,7 @@
 #define read_cfg_file(file, len, buffer)				      \
 	uefi_call_wrapper((file)->Read, 3, (file), (len), (buffer))
 
-EFI_STATUS enumerate_cfg_parts(EFI_FILE_HANDLE *roots, UINTN *maxHandles);
+EFI_STATUS enumerate_cfg_parts(UINTN *config_volumes, UINTN *maxHandles);
+EFI_STATUS filter_cfg_parts(UINTN **config_volumes, UINTN *maxHandles);
 
 #endif // __H_SYSPART__
